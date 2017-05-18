@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.out</target>
+        <encoder>
+            <pattern>%d{ISO8601, UTC} [%t] %-5level %logger{36} %X{akkaSource} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="KafkaZooKeeperAdapter" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>./logs/kafka-Zookeeper.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/kafka-Zookeeper.%d{yyyy-MM-dd-HH-mm}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{ISO8601, UTC} [%t] %-5level %logger{36} %X{akkaSource} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ClusterLoggingAdapter" class="ch.qos.logback.core.rolling.RollingFileAppender" >
+        <file>./logs/cluster-log.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/cluster-log.%d{yyyy-MM-dd-HH-mm}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{ISO8601, UTC} [%t] %-5level %logger{36} %X{akkaSource} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FixtureFlowAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <param name="Append" value="true" />
+        <file>./logs/tennis-events.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/tennis-events.%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{ISO8601, UTC} [%t] %-5level %logger{36} %X{akkaSource} [%X{correlationId}] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="GameFlowAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <param name="Append" value="true" />
+        <file>./logs/incident-events.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/incident-events.%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{ISO8601, UTC} [%t] %-5level %logger{36} %X{akkaSource} [%X{correlationId}] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="CompetitionFlowAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <param name="Append" value="true" />
+        <file>./logs/tournament-events.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/tournament-events.%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{ISO8601, UTC} [%t] %-5level %logger{36} %X{akkaSource} [%X{correlationId}] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="RESTAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <param name="Append" value="true" />
+        <file>./logs/rest-if.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/rest-if.%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{ISO8601, UTC} [%t] %-5level %logger{36} %X{akkaSource} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ReplicatedCacheAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <param name="Append" value="true" />
+        <file>./logs/replcache.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/replcache.%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{ISO8601, UTC} [%t] %-5level %logger{36} %X{akkaSource} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="GuiMananagerAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <param name="Append" value="true" />
+        <file>./logs/gui-manager.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/gui-manager.%d{yyyy-MM-dd-HH}.log</fileNamePattern>
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d{ISO8601, UTC} [%t] %-5level %logger{36} %X{akkaSource} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="fixtureManagerIncidentMessages" level="INFO" additivity="false" >
+        <appender-ref ref="GameFlowAppender" />
+    </logger>
+
+    <logger name="fixtureManagerFixtureMessages" level="INFO" additivity="false" >
+        <appender-ref ref="FixtureFlowAppender" />
+    </logger>
+
+    <logger name="fixtureManagerCompetitionMessages" level="INFO" additivity="false" >
+        <appender-ref ref="CompetitionFlowAppender" />
+    </logger>
+
+    <logger name="com.websudos.phantom" level="DEBUG" additivity="false" >
+        <appender-ref ref="ReplicatedCacheAppender" />
+    </logger>
+
+    <logger name="replicatedCache" level="INFO" additivity="false" >
+        <appender-ref ref="ReplicatedCacheAppender" />
+    </logger>
+
+
+    <logger name="restFlow" level="DEBUG" additivity="false" >
+        <appender-ref ref="RESTAppender" />
+    </logger>
+
+    <logger name="akka" level="DEBUG" />
+
+    <logger name="akka.cluster" level="DEBUG" additivity="false">
+        <appender-ref ref="ClusterLoggingAdapter" />
+    </logger>
+
+    <logger name="org.I0Itec.zkclient" level="INFO" additivity="false">
+        <appender-ref ref="KafkaZooKeeperAdapter"/>
+    </logger>
+
+    <logger name="org.apache.kafka" level="INFO" additivity="false">
+        <appender-ref ref="KafkaZooKeeperAdapter"/>
+    </logger>
+
+    <logger name="akka.kafka" level="DEBUG" additivity="false">
+        <appender-ref ref="KafkaZooKeeperAdapter"/>
+    </logger>
+
+    <logger name="org.eclipse" level="INFO" />
+
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="GuiMananagerAppender" />
+    </root>
+
+</configuration>
