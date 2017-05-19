@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_grey">
+
+    <include layout="@layout/toolbar_main"/>
+
+    <com.kennyc.view.MultiStateView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/multi_state_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:msv_errorView="@layout/error_view"
+        app:msv_emptyView="@layout/empty_view"
+        app:msv_loadingView="@layout/loading_view"
+        app:msv_viewState="loading">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/live_tweets_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </com.kennyc.view.MultiStateView>
+
+
+</LinearLayout>
