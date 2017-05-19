@@ -2,6 +2,14 @@
 
 You can find all our slides and code from the reactive session here...
 
+## Reactive Systems ##
+
+Go fast or go Home! Discover the properties of Reactive Systems, their evolution, and how to implement them.
+
+https://github.com/The-JVM-Thing/reactive-session/blob/master/Reactive_Systems_V1.0.pptx?raw=true
+
+Neil Dunlop
+
 ## Reactive Battleships ## 
 
 A Demo of battleships being played on a massive scale using reactive systems. Using Kafka, Scala, Akka, and some other cool bits of tech.
@@ -10,11 +18,13 @@ https://github.com/The-JVM-Thing/reactive-session/tree/master/reactive-battleshi
 
 Ben Foster
 
+
 ## RxTwitter Stream Android App ## 
 
 Demo of consuming the Twitter Streaming API on a mobile device, and demostrating different backpressure modes for when the tweets are coming in a little too hot!
 
 https://github.com/The-JVM-Thing/reactive-session/tree/master/rx-twitter-stream-android
+
 Robertas Setkus (95%) / James Pittendreigh (5%!)
 
 ## Slides for Building Responsive Reactive Applications (using reactive streams) ##
