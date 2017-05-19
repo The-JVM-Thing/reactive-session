@@ -19,7 +19,7 @@ Robertas Setkus (95%) / James Pittendreigh (5%!)
 
 ## Slides for Building Responsive Reactive Applications (using reactive streams) ##
 
-https://github.com/The-JVM-Thing/reactive-session/blob/master/Building%20Responsive%20Reactive%20Applications.odp
+https://github.com/The-JVM-Thing/reactive-session/blob/master/Building%20responsive%20reactive%20applications%20with%20reactive%20streams.pptx
 
 James Pittendreigh
 
