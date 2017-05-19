@@ -78,6 +78,10 @@ https://github.com/Netflix-Skunkworks/WSPerfLab/blob/master/test-results/RxNetty
 
 https://medium.com/netflix-techblog/zuul-2-the-netflix-journey-to-asynchronous-non-blocking-systems-45947377fb5c
 
+**Websockets Server with Akka Streams**
+
+http://blog.scalac.io/2015/07/30/websockets-server-with-akka-http.html
+
 
 ## “Reactive” Libraries and Frameworks:
 **Akka:**
